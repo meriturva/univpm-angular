@@ -1,0 +1,9 @@
+<p>lista-ordini works!</p>
+Una bella griglia molto complessa
+
+<br>
+
+@for (ordine of ordini; track ordine.id) {
+  Ordine {{ordine.id}} <a [routerLink]="[ordine.id]">Apri</a><br>
+}
+
