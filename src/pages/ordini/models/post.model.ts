@@ -1,7 +1,7 @@
-export interface PostDto {
+export interface Post {
   userId: number;
   id: number;
   title: string;
   body: string;
-  dataCreazioneStr: string;
+  dataCreazione: Date;
 }

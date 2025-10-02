@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 
 import { PostDto } from '../dtos/post.dto';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
+import { Post } from '../models/post.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +11,32 @@ import { map, Observable, tap } from 'rxjs';
 export class OrdiniService {
     private _httpClient = inject(HttpClient);
 
-    public getOrdini(): Observable<PostDto[]> {
+    public getOrdiniStatus(): Observable<string[]> {
+      const stati = ['In preparazione', 'Spedito', 'Consegnato'];
+      return of(stati);
+    }
+
+    public getOrdini(): Observable<Post[]> {
         return this._httpClient.get<PostDto[]>('https://jsonplaceholder.typicode.com/posts')
         .pipe(
+          // solo per simulare una data in stringa
           map((data: PostDto[]) => data.map(item => {
             return {
               ...item,
-              dataCreazione: new Date().toISOString()
+              dataCreazioneStr: new Date().toISOString()
             };
           })),
-          tap(data => console.log('Fetched ordini:', data)),
-          map((data: PostDto[]) => data.slice(0, 10))
+          map((data: PostDto[]) => data.slice(0, 10)),
+          // trasformiamo la data da stringa a date
+          map((data: PostDto[]) => data.map(item => {
+            return {
+              body: item.body,
+              id: item.id,
+              title: item.title,
+              userId: item.userId,
+              dataCreazione: new Date(item.dataCreazioneStr)
+            } as Post;
+          }))
         );
     }
 }
