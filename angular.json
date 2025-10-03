@@ -28,7 +28,7 @@
                 "glob": "**/*",
                 "input": "public"
               },
-               {
+              {
                 "glob": "**/*",
                 "input": "./node_modules/bootstrap-italia/",
                 "output": "/bootstrap-italia/"
@@ -104,6 +104,46 @@
               "src/**/*.ts",
               "src/**/*.html"
             ]
+          }
+        }
+      }
+    },
+    "@univpm/layout": {
+      "projectType": "library",
+      "root": "projects/univpm/layout",
+      "sourceRoot": "projects/univpm/layout/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/univpm/layout/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/univpm/layout/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/univpm/layout/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/univpm/layout/**/*.ts",
+              "projects/univpm/layout/**/*.html"
+            ],
+            "eslintConfig": "projects/univpm/layout/eslint.config.js"
           }
         }
       }

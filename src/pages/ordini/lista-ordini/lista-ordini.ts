@@ -3,9 +3,11 @@ import { OrdiniService } from '../services/ordini.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Post } from '../models/post.model';
 
+import { Layout } from '@univpm/layout';
+
 @Component({
   selector: 'app-lista-ordini',
-  imports: [RouterLink],
+  imports: [RouterLink, Layout],
   templateUrl: './lista-ordini.html',
   styleUrl: './lista-ordini.scss',
 })

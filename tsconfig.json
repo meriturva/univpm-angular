@@ -3,6 +3,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@univpm/layout": [
+        "./projects/univpm/layout/src/public-api.ts"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -29,6 +34,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/univpm/layout/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/univpm/layout/tsconfig.spec.json"
     }
   ]
 }
