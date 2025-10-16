@@ -1,12 +1,31 @@
 <p>lista-ordini works!</p>
-Una bella griglia molto complessa
+
 
 <br>
+Esempio template form:<br>
+{{formValue | json}}<br>
+--------------------------------------------------------------
+<form #form="ngForm" >
+  <!-- <input type="text" [ngClass]="{ 'is-invalid': ngModelTesto.touched && !ngModelTesto.valid }" #ngModelTesto="ngModel" [(ngModel)]="formValue.text" name="testo" required/>
+  @if(ngModelTesto.touched){
+    <span style="color: red">campo toccato</span><br>
+  }
+  @if(ngModelTesto.touched && !ngModelTesto.valid) {
+    <span style="color: red">campo non valido</span><br>
+  } -->
+
+  DevKit:<br><br><br><br><br>
+  <it-input label="Testo" [(ngModel)]="formValue.text1" name="testo2" required="Messaggio di errore"></it-input>
+
+  <button type="submit" [disabled]="!form.valid">Invia</button>
+</form>
+--------------------------------------------------------------
+Una bella griglia molto complessa
 
 <lib-layout></lib-layout>
 
 Stati: {{ stati }}
 @for (ordine of ordini; track ordine.id) {
-  Ordine {{ordine.id}} <a [routerLink]="[ordine.id]">Apri</a><br>
+  Ordine {{ordine.id}} Data: {{ordine.dataCreazione | date : 'shortTime' }} Totale: {{ordine.total | currency }} <a [routerLink]="[ordine.id]">Apri</a><br>
 }
 

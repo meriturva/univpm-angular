@@ -23,6 +23,7 @@ export class OrdiniService {
           map((data: PostDto[]) => data.map(item => {
             return {
               ...item,
+              total: Math.floor(Math.random() * 100) + 1,
               dataCreazioneStr: new Date().toISOString()
             };
           })),
@@ -34,6 +35,7 @@ export class OrdiniService {
               id: item.id,
               title: item.title,
               userId: item.userId,
+              total: item.total,
               dataCreazione: new Date(item.dataCreazioneStr)
             } as Post;
           }))

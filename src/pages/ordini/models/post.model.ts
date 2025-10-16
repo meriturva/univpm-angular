@@ -3,5 +3,6 @@ export interface Post {
   id: number;
   title: string;
   body: string;
+  total: number;
   dataCreazione: Date;
 }

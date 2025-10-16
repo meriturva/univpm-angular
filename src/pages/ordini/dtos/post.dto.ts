@@ -3,5 +3,6 @@ export interface PostDto {
   id: number;
   title: string;
   body: string;
+  total: number;
   dataCreazioneStr: string;
 }
