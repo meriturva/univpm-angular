@@ -1,12 +1,13 @@
 import { globSync, readFileSync, writeFileSync } from 'fs';
+import { PackageJson } from './package-json';
 
 let newVersion = process.argv[2];
 
 if (!newVersion) {
   console.log('Nessuna versione trovata come argomento');
   console.log('Uso la versione del package.json principale');
-  const packageFile = readFileSync('package.json', 'utf-8');
-  newVersion = JSON.parse(packageFile).version;
+  const mainPackage = JSON.parse(readFileSync('package.json', 'utf-8')) as PackageJson
+  newVersion = mainPackage.version;
 }
 
 console.log(`Aggiornamento delle versioni a: ${newVersion}`);
@@ -17,7 +18,7 @@ const projectFiles = globSync('projects/**/package.json');
 // Aggiornamento della versione di ogni project file trovato
 for (const filePath of projectFiles) {
   try {
-    const packageJson = JSON.parse(readFileSync(filePath, 'utf-8'));
+    const packageJson = JSON.parse(readFileSync(filePath, 'utf-8')) as PackageJson;
     packageJson.version = newVersion;
     writeFileSync(filePath, JSON.stringify(packageJson, null, 2) + '\n');
     console.log(`Aggiornato: ${filePath} -> ${newVersion}`);

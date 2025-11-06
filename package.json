@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+    "update-dependencies": "tsx ./tasks/update-dependencies.ts",
     "update-versions": "tsx ./tasks/update-versions.ts",
     "build-libs": "ng build @univpm/layout"
   },
