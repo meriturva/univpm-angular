@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
+import { Main } from './main/main';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', loadComponent: () => import('./login/login').then(m => m.Login) },
+  { path: 'login', loadComponent: () => import('./login/login').then(m => m.Login), data: { nome: 'Login' } },
   {
     path: 'main',
-    loadComponent: () => import('./main-layout/main-layout').then(m => m.MainLayout),
+    component: Main,
     children: [
       { path: 'ordini', loadChildren: () => import('../pages/ordini/ordini.routes').then(m => m.ordine_routes) }
     ]

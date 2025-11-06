@@ -1,3 +1,10 @@
+<it-header></it-header>
+
+Qualcosa di tradotto<br>
+{{'CHIAVE' | translate }}<br>
+
+
+Il layout dell'uni <a>{{layoutConfig.nome}}</a>{{nome()}}
 <div class="container">
   <div class="row">
     <div class="col-2">
@@ -16,5 +23,9 @@
       Main start
       <router-outlet></router-outlet>
       Main end
+
     </div>
   </div>
+
+
+  <ng-content select="lib-layout-footer"></ng-content>
