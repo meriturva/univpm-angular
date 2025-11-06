@@ -1,6 +1,6 @@
 {
   "name": "univpm",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "build-libs": "ng build @univpm/layout && ng build @univpm/layout"
+    "update-versions": "tsx ./tasks/update-versions.ts",
+    "build-libs": "ng build @univpm/layout"
   },
   "prettier": {
     "printWidth": 100,
@@ -43,6 +44,7 @@
     "@angular/compiler-cli": "^20.3.10",
     "@types/jasmine": "~5.1.12",
     "angular-eslint": "20.5.1",
+    "tsx": "4.20.6",
     "eslint": "^9.39.1",
     "jasmine-core": "~5.12.1",
     "karma": "~6.4.4",
