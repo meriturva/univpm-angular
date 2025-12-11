@@ -1,7 +1,10 @@
 <lib-layout [nome]="'Nome del layout'">
 
   <lib-layout-footer>
-    Ecco il mio footer di Unicontr
+    Ecco il mio footer di Unicontr. <button (click)="modalVisibile = true">Apri modale</button>
+
+    <modal-example [(visible)]="modalVisibile" [item]="item" (confirm)="onModalConfirm($event)"></modal-example>
+
   </lib-layout-footer>
 
 

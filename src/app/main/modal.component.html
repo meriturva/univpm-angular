@@ -1,0 +1,14 @@
+<it-modal #exampleModal="itModal" closeButton="false">
+
+  <ng-container modalTitle>Edit dell'element: {{item().name}}</ng-container>
+  <ng-container description>Descrizione scopo della modale.</ng-container>
+
+  <p>Font Titillium 16px. Leading 24px. omnis iste natus error.</p>
+
+  <it-input [(ngModel)]="value"></it-input>
+
+  <ng-container footer>
+    <button itButton="outline-primary" size="sm" type="button" data-bs-dismiss="modal">Azione 2</button>
+    <button itButton="primary" size="sm" type="button" (click)="onOk()">Ok</button>
+  </ng-container>
+</it-modal>
